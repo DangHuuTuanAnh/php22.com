@@ -2,12 +2,12 @@
 
 //Sắp xếp mảng theo thứ tự tăng dần:
 
-$arr = array(7, 5.5, 9, 6, 7.2, 7.8, 10, 5);
+$arr = array(1, 4, 2, 6, 9, 100, 8, 5);
 sort($arr);
 
-
+echo "Mảng theo thứ tự tăng dần: ";
 for($i = 0; $i < count($arr); $i++) {
-	echo $arr[$x];
+	echo $arr[$i] ." ";
 	// echo ” ,”;}
 }
 ?>

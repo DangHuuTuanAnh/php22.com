@@ -1,10 +1,11 @@
 <?php
-$chuoi = 'Zent';
+// $chuoi = 'Zent';
+$chuoi = 'ZenttneZ';
 
 if (kiem_tra_chuoi_palindrome($chuoi)) {
-	echo "Đây là chuỗi Palindrome !";
+	echo $chuoi . " là chuỗi Palindrome !";
 }else{
-	echo "Đây không phải chuỗi Palindrome !";
+	echo $chuoi . " không phải chuỗi Palindrome !";
 }
 
 function kiem_tra_chuoi_palindrome($chuoi)   

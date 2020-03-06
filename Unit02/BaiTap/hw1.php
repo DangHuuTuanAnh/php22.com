@@ -14,5 +14,5 @@ for ($i=0; $i < count($arr); $i++) {
 		}
 	}
 }
-echo "Số lớn nhất trong mảng:" .$max;
+echo "Số lớn nhất trong mảng là:" .$max;
 ?>

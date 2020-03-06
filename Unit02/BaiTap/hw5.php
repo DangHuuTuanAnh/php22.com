@@ -24,4 +24,4 @@
 		echo "<br>Đệm: " . $dem;
 		echo "<br>Tên: " . $ten;
 	}
-?>
+?>	
