@@ -241,8 +241,8 @@ if (array_key_exists('Id',$info)) {
 	# code...
 }*/
 
-/*date_default_timezone_set('Asia/Ho_Chi_Minh');
-echo date('d/m/Y - H:i:s');*/
+// date_default_timezone_set('Asia/Ho_Chi_Minh');
+// echo date('d/m/Y - H:i:s');
 
 include_once 'header.php';
 require_once 'header.php';
