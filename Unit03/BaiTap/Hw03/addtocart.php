@@ -9,8 +9,8 @@ foreach ($products as $val) {
 }
 
 echo "<pre>";
-
-if (!isset($_SESSION['giohang']) || $_SESSION['giohang'] == null) {
+// (!isset($_SESSION['giohang']) ||  $_SESSION['giohang'] == null)
+if (!isset($_SESSION['giohang']) ||  empty($_SESSION['giohang'])) {
 	echo "chưa có sản phẩm nào trong gio";
 	print_r($newproduct[$masp]);
 	$newproduct[$masp]['sl'] = 1;
