@@ -50,9 +50,9 @@ foreach ($categories as $item) {
 			<thead>
 				<th>ID</th>
 				<th>Name</th>
-				<!-- <th>Thumbnail</th> -->
+				<th>Thumbnail</th>
 				<th>Description</th>
-				<th>Created At</th>
+				<!-- <th>Created At</th> -->
 				<th>Action</th>
 			</thead>
 			<tr>
