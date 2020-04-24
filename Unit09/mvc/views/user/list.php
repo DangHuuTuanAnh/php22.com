@@ -16,7 +16,19 @@
 <body>
 	<div class="container">
 		<h3 class="text-center">--- Users ---</h3>
-		<a href="/Unit09/mvc/index.php?mod=user&act=add" class="btn btn-primary">Add New User</a>
+		<a href="/Unit09/mvc/index.php?mod=user&act=create" class="btn btn-primary">Add New User</a>
+		<?php
+		if (isset($_COOKIE["success"])) {
+			?>
+			<div class="alert alert-success" role="alert">
+				<strong>Thông báo:</strong>
+				<?php
+				echo $_COOKIE["success"]; 
+				?>
+			</div>
+			<?php 
+		}
+		?>
 		<table class="table">
 			<thead>
 				<th>ID</th>
@@ -37,7 +49,7 @@
 					<td>
 						<a href="index.php?mod=user&act=detail&id=<?php echo $user['id'] ?>" class="btn btn-primary">Detail</a>
 						<a href="index.php?mod=user&act=edit&id=<?php echo $user['id'] ?>" class="btn btn-success">Edit</a>
-						<a href="index.php?mod=user&act=delete&id=<?php echo $user['id'] ?>" class="btn btn-danger">Delete</a>
+						<a href="index.php?mod=user&act=destroy&id=<?php echo $user['id'] ?>" class="btn btn-danger">Delete</a>
 					</td>
 				</tr>
 			<?php } ?>

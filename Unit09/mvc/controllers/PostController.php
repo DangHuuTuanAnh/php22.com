@@ -2,9 +2,11 @@
 require_once'model/post.php';
 require_once'model/category.php';
 require_once'model/user.php';
+require_once'BaseController.php';
+require_once'model/Model.php';
 
-class PostController{
-	public $model;
+class PostController extends BaseController{
+	protected $model;
 
 	function __construct(){
 		$this->post_model = new Post();
@@ -13,9 +15,9 @@ class PostController{
 		//Lấy dữ liệu:
 		$posts = $this->post_model->all();
 		//Gọi đến view:
-		require_once 'views/post/list.php';
+		$this->view('post/list.php',['posts'=> $posts]);
 	}
-	public function Click_add(){//create
+	public function create(){//create
 		$user_model = new User();
 		$category_model = new Category();
 
@@ -23,23 +25,23 @@ class PostController{
 		$users = $user_model->all();
 		$categories = $category_model->all();
 
-		require_once 'views/post/add.php';
+		$this->view('post/add.php',['posts'=> $posts,'categories' =>$categories,'users'=>$users]);
 	}
-	public function Add_Process(){//store
+	public function store(){//store
 		$data = $_POST;
 		$data['content'] = htmlspecialchars($data['content']);
 		$result = $this->post_model->add($data);
 
 		if ($result) {
 			setcookie("success","Tạo mới thành công",time()+3);
-			header('Location:index.php?mod=post&act=list');
+			$this->redirect('index.php?mod=post&act=list');
 		}else{
 			setcookie("fail","Tạo mới thất bại",time()+3);
-			header('Location:index.php?mod=post&act=list');
+			$this->redirect('index.php?mod=post&act=list');
 		}
 
 	}
-	public function Detail(){
+	public function detail(){
 		$id = $_GET['id'];
 		$user_model = new User();
 		$category_model = new Category();
@@ -47,9 +49,10 @@ class PostController{
 		$categories = $category_model->all();
 		$post = $this->post_model->getById($id);
 		$post = $this->post_model->getPost($id);
-		require_once('views/post/detail.php');
+		$this->view('post/detail.php',['post'=> $post]);
+		
 	}
-	public function Edit_Post(){//edit
+	public function edit(){//edit
 		$user_model = new User();
 		$category_model = new Category();
 
@@ -59,30 +62,30 @@ class PostController{
 		$id = $_GET['id'];
 		$post = $this->post_model->getById($id);
 
-		require_once 'views/post/edit.php';
+		$this->view('post/edit.php',['post'=> $post,'categories' =>$categories,'users'=>$users]);
+		
 	}
-	public function Edit_Process(){//update
+	public function update(){//update
 		$data = $_POST;
 		$data['content'] = htmlspecialchars($data['content']);
 		$result = $this->post_model->update($data);
 		if ($result) {
-			setcookie("success","Tạo mới thành công",time()+3);
-			header('Location:index.php?mod=post&act=list');
+			setcookie("success","Cập nhật thành công",time()+3);
+			$this->redirect('index.php?mod=post&act=list');
 		}else{
-			setcookie("fail","Tạo mới thất bại",time()+3);
-			header('Location:index.php?mod=post&act=list');
+			setcookie("fail","Cập nhật thất bại",time()+3);
+			$this->redirect('index.php?mod=post&act=list');
 		}
 	}
-	public function Delete_Post(){//destroy
+	public function destroy(){//destroy
 		$id = $_GET['id'];
-		// $post = $this->post_model->getById($id);
 		$result =$this->post_model->Delete($id);
 		if ($result) {
-			setcookie("success","Tạo mới thành công",time()+3);
-			header('Location:index.php?mod=post&act=list');
+			setcookie("success","Xóa thành công",time()+3);
+			$this->redirect('index.php?mod=post&act=list');
 		}else{
-			setcookie("fail","Tạo mới thất bại",time()+3);
-			header('Location:index.php?mod=post&act=list');
+			setcookie("fail","Xóa thất bại",time()+3);
+			$this->redirect('index.php?mod=post&act=list');
 		}
 	}
 }

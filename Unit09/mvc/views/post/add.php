@@ -31,7 +31,7 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
         <h3 align="center">DevMind - Education And Technology Group</h3>
         <h3 align="center">Add New Post</h3>
         <hr>
-        <form action="index.php?mod=post&act=add_process" method="POST" role="form" enctype="multipart/form-data">
+        <form action="index.php?mod=post&act=store" method="POST" role="form" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="">Title</label>
                 <input type="text" class="form-control" id="" placeholder="" name="title">

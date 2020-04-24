@@ -23,7 +23,7 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
     <h3 align="center">DevMind - Education And Technology Group</h3>
     <h3 align="center">Add New User</h3>
     <hr>
-        <form action="index.php?mod=user&act=add_process" method="POST" role="form" enctype="multipart/form-data">
+        <form action="index.php?mod=user&act=store" method="POST" role="form" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="">Name</label>
                 <input type="text" class="form-control" id="" placeholder="" name="name">

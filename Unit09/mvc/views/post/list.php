@@ -16,19 +16,19 @@
 <body>
 	<div class="container">
 		<h3 class="text-center">--- Posts ---</h3>
-		<a href="/Unit09/mvc/index.php?mod=post&act=add" class="btn btn-primary">Add New Posts</a>
+		<a href="/Unit09/mvc/index.php?mod=post&act=create" class="btn btn-primary">Add New Posts</a>
 		<?php
-            if (isset($_COOKIE["msg"])) {
-                ?>
-                <div class="alert alert-success" role="alert">
-                    <strong>Thông báo:</strong>
-                    <?php
-                    echo $_COOKIE["msg"]; 
-                    ?>
-                </div>
-                <?php 
-            }
-            ?>
+		if (isset($_COOKIE["success"])) {
+			?>
+			<div class="alert alert-success" role="alert">
+				<strong>Thông báo:</strong>
+				<?php
+				echo $_COOKIE["success"]; 
+				?>
+			</div>
+			<?php 
+		}
+		?>
 		<table class="table">
 			<thead>
 				<th>ID</th>
@@ -40,21 +40,21 @@
 			</thead>
 			<tr>
 
-			
-			<?php 
-			foreach ($posts as $post) {?>
-				<td><?php echo $post['id']; ?></td>
-				<td style="width: 200px;"><?php echo $post['title']; ?></td>
-				<td style="width: 690px;"><?php echo $post['description']; ?></td>
-				<td>
-					<img src="<?php echo $post['thumbnail']; ?>" width="100px" height="100px">
-					<!-- <?php echo $post['thumbnail']; ?> -->
-				</td>
-				<td>
-					<a href="index.php?mod=post&act=detail&id=<?php echo $post['id']; ?>" class="btn btn-primary">Detail</a>
-					<a href="index.php?mod=post&act=edit&id=<?php echo $post['id']; ?>" class="btn btn-success">Edit</a>
-					<a href="index.php?mod=post&act=delete&id=<?php echo $post['id']; ?>" class="btn btn-danger">Delete</a>
-				</td>
+
+				<?php 
+				foreach ($posts as $post) {?>
+					<td><?php echo $post['id']; ?></td>
+					<td style="width: 200px;"><?php echo $post['title']; ?></td>
+					<td style="width: 690px;"><?php echo $post['description']; ?></td>
+					<td>
+						<img src="<?php echo $post['thumbnail']; ?>" width="100px" height="100px">
+						<!-- <?php echo $post['thumbnail']; ?> -->
+					</td>
+					<td>
+						<a href="index.php?mod=post&act=detail&id=<?php echo $post['id']; ?>" class="btn btn-primary">Detail</a>
+						<a href="index.php?mod=post&act=edit&id=<?php echo $post['id']; ?>" class="btn btn-success">Edit</a>
+						<a href="index.php?mod=post&act=destroy&id=<?php echo $post['id']; ?>" class="btn btn-danger">Delete</a>
+					</td>
 				</tr>
 			<?php } ?>
 		</table>

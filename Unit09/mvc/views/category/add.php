@@ -1,7 +1,7 @@
 <?php 
 
 date_default_timezone_set('Asia/Ho_Chi_Minh');
- ?>
+?>
 
 <!DOCTYPE html>
 <html>
@@ -20,17 +20,17 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
 </head>
 <body>
     <div class="container">
-    <h3 align="center">DevMind - Education And Technology Group</h3>
-    <h3 align="center">Add New Category</h3>
-    <hr>
-        <form action="index.php?mod=category&act=add_process" method="POST" role="form" enctype="multipart/form-data">
+        <h3 align="center">DevMind - Education And Technology Group</h3>
+        <h3 align="center">Add New Category</h3>
+        <hr>
+        <form action="index.php?mod=category&act=store" method="POST" role="form" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="">Name</label>
                 <input type="text" class="form-control" id="" placeholder="" name="name">
             </div>
             <div class="form-group">
                 <label for="">Thumbnail</label>
-                <input class="form-control" type="file" name="thumbnail" id="thumbnail">
+                <input class="form-control" type="file" id="thumbnail" name="thumbnail">
             </div>
             <div class="form-group">
                 <label for="">Slug</label>

@@ -23,7 +23,7 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
 		<h3 align="center">Update User</h3>
 		<hr>
 		
-		<form action="index.php?mod=user&act=edit_process" method="POST" role="form" enctype="multipart/form-data">
+		<form action="index.php?mod=user&act=update" method="POST" role="form" enctype="multipart/form-data">
 			<input type="hidden" name="id" value="<?php echo $user['id']; ?>">
 			<div class="form-group">
 				<label for="">Name</label>
@@ -46,6 +46,9 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
 				<input class="form-control" type="file" name="avatar" id="avatar">
 			</div>
 			<button  type="submit" class="btn btn-primary">Update</button>
+			<!-- <button  type="submit" class="btn btn-primary">Quay lại</button> -->
+			<a href="/Unit09/mvc/index.php?mod=user&act=list" class="btn btn-primary">Quay lại</a>
+
 		</form>
 	</div>
 </body>
